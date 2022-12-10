@@ -1,0 +1,44 @@
+<h4 class="text-primary">Template-driven forms</h4>
+
+<form (ngSubmit)="submit()" #form="ngForm">
+  <div>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" [ngModel]="hero.nome" name="nome" class="form-control" required #nome="ngModel">
+      <p *ngIf="nome.invalid && nome.touched" class="bg-danger p-2">Questo campo è obbligatorio </p>
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">alterEgo</label>
+      <input type="text" id="alterEgo" [ngModel]="hero.alterEgo" name="alterEgo" class="form-control" required
+        #alter="ngModel">
+      <p *ngIf="alter.invalid && alter.touched" class="bg-danger p-2">Questo campo è obbligatorio </p>
+    </div>
+    <div class="form-group">
+      <label for="power">superPotere</label>
+      <select class="form-control" id="power" required>
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nemico">nemico</label>
+      <input type="text" id="nemico" [ngModel]="hero.nemico" name="nemico" class="form-control" required
+        #nemico="ngModel">
+      <p *ngIf="nemico.invalid && nemico.touched" class="bg-danger p-2">Questo campo è obbligatorio </p>
+    </div>
+    <div class="form-group">
+      <label for="pianeta">pianeta</label>
+      <input type="text" id="pianeta" [ngModel]="hero.pianeta" name="pianeta" class="form-control" required
+        #pianeta="ngModel">
+      <p *ngIf="pianeta.invalid && pianeta.touched" class="bg-danger p-2">Questo campo è obbligatorio </p>
+    </div>
+    <div class="form-group">
+      <label for="debolezza">debolezza</label>
+      <input type="text" id="debolezza" [ngModel]="hero.debolezza" name="debolezza" class="form-control" required
+        #debolezza="ngModel">
+      <p *ngIf="debolezza.invalid && debolezza.touched" class="bg-danger p-2">Questo campo è obbligatorio </p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3" [disabled]="form.invalid">Invia</button>
+
+</form>
